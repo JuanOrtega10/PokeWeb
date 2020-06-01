@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+#pokemons{
+  height:800px;
+  overflow-y: scroll;
+}
+#detail{
+  height:800px;
+  overflow-y: scroll;
+}
