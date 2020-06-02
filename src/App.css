@@ -38,10 +38,33 @@
 }
 
 #pokemons{
-  height:800px;
+  height:570px;
   overflow-y: scroll;
 }
 #detail{
-  height:800px;
+  height:570px;
   overflow-y: scroll;
+}
+.justify{
+  text-align: justify;
+  text-justify: inter-word;
+}
+.justify2{
+  text-align: justify;
+}
+#pokemonName{
+  white-space:nowrap;
+}
+
+#pokemonNameCard{
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+h3 {
+    text-align:center;
+}
+
+#logo{
+  width:30px;
 }

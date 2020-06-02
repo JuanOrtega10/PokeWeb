@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './App.css';
 
 class PokemonCard extends React.Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class PokemonCard extends React.Component {
     }
 
     componentDidMount() {
-        fetch(this.state.pokemon.url)
+        fetch("http://localhost:4000/pokemon/"+this.props.pokemon.name)
             .then(res => res.json())
             .then(res => {
                 this.setState({ pokemonDetail: res, fetched: true });
@@ -27,7 +27,9 @@ class PokemonCard extends React.Component {
                 <div className="card col-3" onClick={() => this.props.onPokeSelected(this.state.pokemonDetail)}>
                     <img className="card-img-top" src={this.state.pokemonDetail.sprites.front_default} alt={this.state.pokemonDetail.name} />
                     <div className="card-body">
-                        <h3 className="card-title">{this.state.pokemonDetail.name}</h3>
+                        <div className="justify">
+                            <h3 text-align="center">{this.state.pokemonDetail.name}</h3>
+                        </div>
                         <h6>Type(s)</h6>
                         <ul className="list-group list-group-horizontal">
                             {this.state.pokemonDetail.types.map((e, i) =>
@@ -38,7 +40,7 @@ class PokemonCard extends React.Component {
                             {this.state.pokemonDetail.abilities.map((e, i) =>
                                 <li className="list-group-item">{e.ability.name}</li>)}
                         </ul>
-                        <h6 className="card-title"> Weight {this.state.pokemonDetail.weight}</h6>
+                        <h6 className="card-title"> Weight: {this.state.pokemonDetail.weight}</h6>
                     </div>
                 </div>
 
@@ -50,7 +52,7 @@ class PokemonCard extends React.Component {
         return (
             <div className="card">
                 <div className="card-body">
-                    <h5 className="card-title">Cargando</h5>
+                    <h5 className="card-title">Loading</h5>
                 </div>
             </div>
         );
